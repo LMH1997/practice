@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            height: 500px;
+            margin: 50px 500px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        .view{
+            height: 48px;
+            width: 100%;
+            background-color: darkgrey;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="ViewArea">
+                <div class="view">1</div>
+                <div class="view">2</div>
+                <div class="view">3</div>
+                <div class="view">4</div>
+                <div class="view">5</div>
+                <div class="view">6</div>
+                <div class="view">7</div>
+                <div class="view">8</div>
+                <div class="view">9</div>
+                <div class="view">10</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var item = document.querySelector(".view");//需要单个渲染的元素
+    var container = document.querySelector(".container");//可视区域
+    
+
+    var total = 100;
+    var start = 0;//开始位置
+    var pageSize = 10;
+
+    var itemStyle = getComputedStyle(item);
+    var itemHeight = Number(itemStyle.height.split('px')[0]);
+
+    document.querySelector(".content").style.height = itemHeight * total + "px";
+    update(0,start,pageSize);
+
+    function update(height,start,pageSize){
+        document.querySelector(".container .content .ViewArea").style.transform = 'translateY(' + height +'px)';
+        let all = document.querySelectorAll(".view");
+        for(var i = start,itemIndex = 0,len = start + pageSize;i<len;i++,itemIndex++){
+            var index = i%pageSize;
+            all[itemIndex].innerHTML = i;
+        }
+    }
+
+    function scroller(){
+        var lastStart = 0;
+        return ()=>{
+            var currentScrollTop = container.scrollTop;
+            console.log(currentScrollTop)
+            var fixedScrollTop = 0;
+            // fixedScrollTop += Number(getComputedStyle(document.querySelector(".view")).height.split('px')[0]);
+            var fixedScrollTop = currentScrollTop - currentScrollTop % itemHeight;
+            console.log(fixedScrollTop)
+            var start = Math.floor(currentScrollTop/itemHeight);
+
+            if(lastStart !== start){
+                lastStart = start;
+                update(fixedScrollTop,start,pageSize);
+            }
+        }
+    }
+
+    document.querySelector(".container").addEventListener('scroll',scroller(),false);
+</script>
+
+</html>

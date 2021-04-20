@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            margin: 50px auto;
+        }
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid black;
+            /* text-align: center; */
+        }
+        table thead{
+            background-color: gray;
+        }
+        table tbody tr:nth-of-type(even){
+            background-color: blueviolet;
+        }
+        table tbody{
+            display: block;
+            height: 200px;
+            overflow-y: scroll;
+            text-align:center;
+        }
+        table tr{
+            width: 100%;
+            display: table;
+        }
+        table tbody tr td:nth-child(1){
+            width: 30%;
+        }
+        table tbody tr td:nth-child(2){
+            width:30%;
+        }
+        table tbody tr td:nth-last-child(){
+            width: 40%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="first">aaa</td>
+                    <td class="second">32</td>
+                    <td class="third">London, Park Lane no. 0</td>
+                </tr>
+                <tr>
+                    <td>a</td>
+                    <td>32</td>
+                    <td>London, Park Lane no. 1</td>
+                </tr>
+                <tr>
+                    <td>bb</td>
+                    <td>32</td>
+                    <td>London, Park Lane no. 2</td>
+                </tr>
+                <tr>
+                    <td>cc</td>
+                    <td>32</td>
+                    <td>London, Park Lane no. 3</td>
+                </tr>
+                <tr>
+                    <td>dd</td>
+                    <td>32</td>
+                    <td>London, Park Lane no. 4</td>
+                </tr>
+                <tr>
+                    <td>ee</td>
+                    <td>32</td>
+                    <td>London, Park Lane no. 5</td>
+                </tr>
+                <tr>
+                    <td>ff</td>
+                    <td>32</td>
+                    <td>London, Park Lane no. 6</td>
+                </tr>
+                <tr>
+                    <td>gg</td>
+                    <td>32</td>
+                    <td>London, Park Lane no. 7</td>
+                </tr>
+                <tr>
+                    <td>hh</td>
+                    <td>32</td>
+                    <td>London, Park Lane no. 8</td>
+                </tr>
+                <tr>
+                    <td>ii</td>
+                    <td>32</td>
+                    <td>London, Park Lane no. 9</td>
+                </tr>
+                <tr>
+                    <td>jj</td>
+                    <td>32</td>
+                    <td>London, Park Lane no. 10</td>
+                </tr>
+                <tr>
+                    <td>kk</td>
+                    <td>32</td>
+                    <td>London, Park Lane no. 11</td>
+                </tr>
+                <tr>
+                    <td>ll</td>
+                    <td>32</td>
+                    <td>London, Park Lane no. 12</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
